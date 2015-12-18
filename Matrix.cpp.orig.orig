@@ -13,20 +13,20 @@ Matrix::Matrix(int X_SIZE, int Y_SIZE, int X_START_PIN, int Y_START_PIN) {
     this->X_START_PIN = X_START_PIN;
     this->Y_START_PIN = Y_START_PIN;
     for (int x = X_START_PIN; x < X_START_PIN + X_SIZE; x++) {
-        pinMode(x, OUTPUT);
+      pinMode(x, OUTPUT);
     }
     for (int y = Y_START_PIN; y < Y_START_PIN + Y_SIZE; y++) {
-        pinMode(y, OUTPUT);
+      pinMode(y, OUTPUT);
     }
 
     int size = X_SIZE * Y_SIZE * sizeof(bool);
-
+    
     this->buffer = (bool*)malloc(size);
     memset(buffer, 0, size);
 }
 
 Matrix::~Matrix() {
-    free(buffer);
+  free(buffer);
 }
 
 void Matrix::led(int x, int y, int time) {
@@ -73,18 +73,18 @@ void Matrix::led(int x, int y, int time, int bright) {
 
 }
 
-void Matrix::randomLed(int time) {
-    led(random(0, X_SIZE), random(0, Y_SIZE), time);
-}
+    void Matrix::randomLed(int time) {
+      led(random(0, X_SIZE), random(0, Y_SIZE), time);
+    }
 
 bool Matrix::getState(int x, int y) const {
-    int i = y * X_SIZE + x;
-    return buffer[i];
+  int i = y * X_SIZE + x;
+  return buffer[i];
 }
 
 void Matrix::setState(int x, int y, bool state) {
-    int i = y * X_SIZE + x;
-    buffer[i] = state;
+  int i = y * X_SIZE + x;
+  buffer[i] = state;
 }
 
 

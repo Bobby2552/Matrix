@@ -4,7 +4,7 @@
 #include "Arduino.h"
 
 class Matrix {
-private:
+ private:
     //Variables described in constructor
     int X_SIZE;
     int Y_SIZE;
@@ -13,7 +13,7 @@ private:
     //buffer helps to eliminate duplicate output code. All 'drawing' functions will write
     //to he buffer, and then call a write method.
     bool* buffer;
-
+    
 public:
     //Most basic constructor. Assumes no shift register.
     //Size variables are the size of matrix. Start_pin variables are for the first pin of
