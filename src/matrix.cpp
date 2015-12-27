@@ -37,8 +37,6 @@ void Matrix::preparePins() {
 }
 
 void Matrix::write() {
-    preparePins();
-
     for (int x = 0; x < width; x++) {
         for (int y = 0; y < height; y++) {
             bool state = buffer[(y * width) + x];
@@ -46,7 +44,12 @@ void Matrix::write() {
             if (state) {
                 digitalWrite(x + startX, HIGH);
                 digitalWrite(y + startY, LOW);
+
+                delay(1);
             }
+
+            digitalWrite(x + startX, LOW);
+            digitalWrite(y + startY, HIGH);
         }
     }
 }

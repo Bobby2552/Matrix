@@ -14,6 +14,7 @@ struct Matrix {
     bool* operator[] (int row);
 
     void clear();
+
     void preparePins();
     void write(); 
 };
