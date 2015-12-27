@@ -24,14 +24,14 @@ typedef double (*function)(double);
 function fns[] = { benSin, benSqrt, benSquared };
 
 int i = COUNT(fns);
-int timeToDisplay = 5000;
+int timeToDisplay = 2000;
 
 void setup() {
 
 }
 
 void loop() {
-    if (millis() - timeToDisplay * i < 100) {
+    if ((millis() - timeToDisplay * i) < 100) {
         i++;
     }
 
