@@ -23,15 +23,15 @@ typedef double (*function)(double);
 
 function fns[] = { benSin, benSqrt, benSquared };
 
-int i = COUNT(fns);
-int timeToDisplay = 2000;
+int i = 0;
+int timeToDisplay = 1000;
 
 void setup() {
-
+    Serial.begin(9600);
 }
 
 void loop() {
-    if ((millis() - timeToDisplay * i) < 100) {
+    if (millis() > timeToDisplay * (i + 1)) {
         i++;
     }
 
@@ -44,4 +44,5 @@ void loop() {
     }
 
     mat.write();
+    Serial.println(millis() - timeToDisplay * i);
 }

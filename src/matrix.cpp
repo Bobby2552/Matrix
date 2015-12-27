@@ -44,7 +44,7 @@ void Matrix::write() {
             if (state) {
                 digitalWrite(x + startX, HIGH);
                 digitalWrite(y + startY, LOW);
-
+                
                 delay(1);
             }
 
